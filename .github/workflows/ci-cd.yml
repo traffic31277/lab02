@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Build step
         run: echo "Build OK - HTML validated"
@@ -20,7 +20,7 @@ jobs:
     needs: build   # This ensures deploy runs only if build is successful
     steps:
       - name: Checkout repository
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Deploy step
         run: echo "Deployment successful to staging"
@@ -30,10 +30,10 @@ jobs:
     needs: build
     steps:
       - name: Checkout repository
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Upload index.html as an artifact
-        uses: action/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: webpage
           path: index.html
